@@ -1,0 +1,41 @@
+ 
+  <div class="row my-4">
+      <div class="col-sm-6">
+        List of user
+      </div>
+      <div class="col-sm-6">
+        <div class="form-inline float-right">
+          <input class="float-right" [(ngModel)]="searchText" class="form-control" placeholder="search">
+        </div>
+      </div>
+    </div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Surname</th>
+      <th scope="col">Birthbate</th>
+      <th scope="col">Phone</th>
+      <th scope="col">City</th>
+      <th scope="col">Street</th>
+      <th scope="col">Number</th>
+      <th scope="col">Birthbate</th>
+      <th scope="col">Birthbate</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="userData" >
+    <tr *ngFor="let user of userData | filter: searchText">
+      <td scope="row">{{user.id}}</td>
+      <td scope="row">{{user.name}}</td>
+      <td scope="row">{{user.surname}}</td>
+      <td scope="row">{{user.birthDate}}</td>
+      <td scope="row">{{user.phone}}</td>
+      <td scope="row">{{user.city}}</td>
+      <td scope="row">{{user.street}}</td>
+      <td scope="row">{{user.number}}</td>
+      <td scope="row"><button type="button" [routerLink]="['/edit', user.id]" class="btn btn-info">Edit</button></td>
+      <td scope="row"><button type="button" (click)="removeData(user.id)" class="btn btn-danger">Delete</button></td>
+    </tr>
+  </tbody>
+</table>
